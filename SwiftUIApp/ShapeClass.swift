@@ -35,7 +35,7 @@ struct ShapeClass: View {
                 Rectangle().fill(.red)
                     .frame(width: 75, height: 75)
                 Spacer()
-                Rectangle().fill(.cyan)
+                Rectangle().fill(.green)
                     .frame(width: 100, height: 100)
                 Spacer()
             }
