@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct UserRow: View {
     let user: User
@@ -31,19 +32,24 @@ struct UserRow: View {
 //                            }
 //
 //            }
-            AsyncImage(
-                url: URL(string: user.avatarUrl),
-                content: { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 30, maxHeight: 30)
-                        .clipShape(Circle())
-                        .transition(.scale.animation(.easeInOut))
-                },
-                placeholder: {
-                    ProgressView()
-                }
-            )
+            WebImage(url: URL(string: user.avatarUrl)!)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: 30, maxHeight: 30)
+                .clipShape(Circle())
+//            AsyncImage(
+//                url: URL(string: user.avatarUrl),
+//                content: { image in
+//                    image.resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(maxWidth: 30, maxHeight: 30)
+//                        .clipShape(Circle())
+//                        .transition(.scale.animation(.easeInOut))
+//                },
+//                placeholder: {
+//                    ProgressView()
+//                }
+//            )
             Text(user.name).font(.title)
             Spacer()
         }
