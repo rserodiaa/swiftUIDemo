@@ -24,4 +24,9 @@ Swift 5.0
 - Capability to add new cities
 
 # App Screenshots
-<img src="https://github.com/rserodiaa/swiftUIDemo/assets/52790579/322fa77e-a55d-4983-86d4-818e99465771" width="80",  height="280">
+<a href="url"><img src="https://github.com/rserodiaa/swiftUIDemo/assets/52790579/322fa77e-a55d-4983-86d4-818e99465771" align="left" height="350"></a>
+<a href="url"><img src="https://github.com/rserodiaa/swiftUIDemo/assets/52790579/6a2f9fa2-536d-42c3-b83c-b8f240641450" align="left" height="350"></a>
+
+
+
+
