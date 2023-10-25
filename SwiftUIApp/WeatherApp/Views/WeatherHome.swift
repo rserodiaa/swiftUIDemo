@@ -13,16 +13,16 @@ struct WeatherHome: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.purple.opacity(0.2).ignoresSafeArea()
-                
                 TabView {
                     ForEach(viewModel.cities) { city in
-                        CityOverview(city: city.cityName, time: "11:00", weatherImage: city.imageName)
+                        CityOverview(city: city.cityName,
+                                     weatherImage: city.imageName)
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .navigationBarHidden(true)
             }
+            .background(LinearGradient(colors: [Color(hex: 0xCF9FFF), Color(hex: 0xE0B0FF), Color(hex: 0xE6E6FA), .white], startPoint: .top, endPoint: .bottom)).ignoresSafeArea()
         }
     }
 }

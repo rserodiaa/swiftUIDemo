@@ -13,6 +13,7 @@ final class CityOverViewModel: ObservableObject {
     private var cityName: String = "Gurgaon"
     private var cancellable = Set<AnyCancellable>()
     @Published var weatherData: WeatherData?
+    @Published var isLoaded = false
     @Published var iconURL: URL = URL(string: "https://openweathermap.org/img/wn/10d@2x.png")!
     @Published var desc: String = ""
     @Published var currentTemp: Int = 0
@@ -26,7 +27,30 @@ final class CityOverViewModel: ObservableObject {
     }
     
     var icon: String {
-        currentList?.weather.first?.icon ?? "https://openweathermap.org/img/wn/10d@2x.png"
+        currentList?.weather.first?.icon ?? "10d"
+    }
+    
+    var timeFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm a"
+        return formatter
+    }
+    
+    var currentTime: String {
+        return timeFormatter.string(from: Date())
+    }
+    
+    func formattedTime(from dateStr: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-mm-dd HH:mm:ss"
+        guard let date = formatter.date(from: dateStr) else { return "" }
+        return timeFormatter.string(from: date)
+    }
+    
+    var currentDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, d MMM"
+        return formatter.string(from: Date())
     }
 
     func getWeatherData(cityName: String) {
@@ -44,6 +68,7 @@ final class CityOverViewModel: ObservableObject {
                 guard let self = self else {
                     return
                 }
+                self.isLoaded = true
                 DispatchQueue.main.async {
                     self.weatherData = data
                     self.iconURL = URL(string: "https://openweathermap.org/img/wn/\(self.icon)@2x.png")!

@@ -10,20 +10,22 @@ import SDWebImage
 import SDWebImageSwiftUI
 
 struct CityOverview: View {
-    @State var city: String
-    @State var time: String
-    @State var weatherImage: String
+    var city: String
+    var weatherImage: String
     @ObservedObject var cityViewModel = CityOverViewModel()
     
     var body: some View {
         VStack(spacing: 30) {
             
-            header
-            currentWeather
-            weatherAttributes
-            DailyForecast()
-            
-            Spacer()
+            if cityViewModel.isLoaded {
+                header
+                currentWeather
+                weatherAttributes
+                dailyForcastRow
+                Spacer()
+            } else {
+                ProgressView()
+            }
             
         }.onAppear(perform: fetchWeather)
     }
@@ -32,23 +34,11 @@ struct CityOverview: View {
         cityViewModel.getWeatherData(cityName: city)
     }
     
-    private var currentTime: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm a"
-        return formatter.string(from: Date())
-    }
-    
-    private var currentDate: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, d MMM"
-        return formatter.string(from: Date())
-    }
-    
     private var header: some View {
         VStack {
             Text(city).fontWeight(.semibold).font(.title)
-            Text(currentTime).font(.title3)
-        }
+            Text(cityViewModel.currentTime).font(.title3)
+        }.foregroundColor(.white)
     }
     
     private var currentWeather: some View {
@@ -67,10 +57,10 @@ struct CityOverview: View {
         .frame(width: 250, height: 260)
         .background(
             RoundedRectangle(cornerRadius: 50)
-                .fill(.purple)
+                .fill(.purple).shadow(radius: 5)
         )
         .overlay(
-            Text(currentDate)
+            Text(cityViewModel.currentDate)
                 .padding(.vertical, 5)
                 .padding(.horizontal, 20)
                 .background(
@@ -93,13 +83,47 @@ struct CityOverview: View {
         .padding()
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity)
-        .background(RoundedRectangle(cornerRadius: 40).fill(.white))
+        .background(RoundedRectangle(cornerRadius: 40)
+            .fill(Color(hex: 0xFAF9F6))
+            .shadow(radius: 5))
         .padding(.horizontal, 25)
+    }
+    
+    private var dailyForcastRow: some View {
+        VStack {
+            HStack {
+                Text("Today")
+                Spacer()
+                NavigationLink(destination: AllDaysForecast()) {
+                    Text("Next 7 days")
+                    Image(systemName: "chevron.right")
+                }
+                
+            }
+            .fontWeight(.bold)
+            .padding(.horizontal, 41)
+            
+            ScrollView(.horizontal) {
+                HStack(spacing: 30) {
+                    
+                    if let weatherData = cityViewModel.weatherData {
+                        ForEach(weatherData.list.prefix(5), id: \.dt) { data in
+                            let icon = data.weather.first?.icon ?? "01n"
+                            let iconUrl = "https://openweathermap.org/img/wn/\(icon)@2x.png"
+                            HourlyBox(time: cityViewModel.formattedTime(from: data.dtTxt),
+                                      iconURL: iconUrl,
+                                      temp: Int(data.main.temp))
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal, 20)
+        }
     }
 }
 
 struct CityOverview_Previews: PreviewProvider {
     static var previews: some View {
-        CityOverview(city: "Gurugram", time: "11:00AM", weatherImage: "Sunny")
+        CityOverview(city: "Gurugram", weatherImage: "Sunny")
     }
 }
