@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct DailyRow: View {
-    @State var imageName: String
-    @State var temp: Int
-    @State var day: String
-    @State var date: String
+    var imageName: URL?
+    var temp: Int
+    var day: String
+    var date: String
     
     var body: some View {
         HStack(spacing: 25) {
-            Image(imageName)
+            WebImage(url: imageName)
                 .resizable()
                 .frame(width: 60, height: 60)
             Spacer()
@@ -35,6 +36,10 @@ struct DailyRow: View {
 
 struct DailyRow_Previews: PreviewProvider {
     static var previews: some View {
-        DailyRow(imageName: "HeavyRainSwrsDay", temp: 30, day: "Monday", date: "17 Oct")
+        DailyRow(imageName: URL(string:
+                                    "https://openweathermap.org/img/wn/10d@2x.png"),
+                 temp: 30,
+                 day: "Monday",
+                 date: "17 Oct")
     }
 }

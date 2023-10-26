@@ -36,8 +36,30 @@ final class CityOverViewModel: ObservableObject {
         return formatter
     }
     
+    // For Home
+    var homeDateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, d MMM"
+        return formatter
+    }
+    
+    // For next 5 days
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE, d MMM"
+        return formatter
+    }
+    
     var currentTime: String {
         return timeFormatter.string(from: Date())
+    }
+    
+    var currentDate: String {
+        return homeDateFormatter.string(from: Date())
+    }
+    
+    var dailyForecast: [WeatherList]? {
+        return weatherData?.list.enumerated().filter { ($0.offset % 8 == 0) }.map { $0.element }
     }
     
     func formattedTime(from dateStr: String) -> String {
@@ -47,11 +69,15 @@ final class CityOverViewModel: ObservableObject {
         return timeFormatter.string(from: date)
     }
     
-    var currentDate: String {
+    func formattedDate(from dateStr: String) -> (day: String, date: String) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, d MMM"
-        return formatter.string(from: Date())
+        formatter.dateFormat = "YYYY-mm-dd HH:mm:ss"
+        guard let date = formatter.date(from: dateStr) else { return ("", "") }
+        let dateStr = dateFormatter.string(from: date).split(separator: ",").map { "\($0)" }
+        return (dateStr.first ?? "", dateStr.last ?? "")
     }
+    
+    
 
     func getWeatherData(cityName: String) {
         WeatherService.getWeatherData(city: cityName)

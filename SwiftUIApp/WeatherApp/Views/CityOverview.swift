@@ -94,8 +94,8 @@ struct CityOverview: View {
             HStack {
                 Text("Today")
                 Spacer()
-                NavigationLink(destination: AllDaysForecast()) {
-                    Text("Next 7 days")
+                NavigationLink(destination: AllDaysForecast(cityViewModel: cityViewModel)) {
+                    Text("Next 5 days")
                     Image(systemName: "chevron.right")
                 }
                 

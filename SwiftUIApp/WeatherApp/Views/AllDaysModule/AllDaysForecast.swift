@@ -9,19 +9,28 @@ import SwiftUI
 
 struct AllDaysForecast: View {
     @Environment(\.presentationMode) var presentationMode
+    var cityViewModel: CityOverViewModel
     
     var body: some View {
         
         ScrollView {
             navigationBar
-            Text("Gurugram")
+            Text("\(cityViewModel.weatherData?.city.name ?? ""), \(cityViewModel.weatherData?.city.country ?? "")")
                 .fontWeight(.bold)
                 .font(.system(size: 30))
             Spacer().frame(height: 30)
             VStack {
-                DailyRow(imageName: "HeavyRainSwrsDay", temp: 19, day: "Mon", date: "16 Oct")
-                DailyRow(imageName: "Sunny", temp: 34, day: "Tue", date: "17 Oct")
-                DailyRow(imageName: "Cloudy", temp: 28, day: "Wed", date: "18 Oct")
+                if let daily = cityViewModel.dailyForecast {
+                    ForEach(daily, id: \.dt) { data in
+                        let date = cityViewModel.formattedDate(from: data.dtTxt)
+                        let icon = data.weather.first?.icon ?? "01n"
+                        let iconUrl = URL(string: "https://openweathermap.org/img/wn/\(icon)@2x.png")
+                        DailyRow(imageName: iconUrl,
+                                 temp: Int(data.main.temp),
+                                 day: date.day,
+                                 date: date.date)
+                    }
+                }
                 
                 Spacer()
             }
@@ -53,6 +62,6 @@ struct AllDaysForecast: View {
 
 struct AllDaysForecast_Previews: PreviewProvider {
     static var previews: some View {
-        AllDaysForecast()
+        AllDaysForecast(cityViewModel: CityOverViewModel())
     }
 }
