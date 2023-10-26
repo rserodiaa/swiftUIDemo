@@ -15,6 +15,7 @@ Swift 5.0
 # Features
 ## Current Weather
 - Shows current weather of cities selected
+- Daily Forecast for next 5 days
 
 ## Multiple Cities
 - Shows real time weather of multiple cities using pagination.
@@ -22,11 +23,15 @@ Swift 5.0
 # Upcoming Features
 - Daily Forecast for coming days
 - Capability to add new cities
+- Pollution data
+
+# Resourses/Framework
+- SDWebImageSwiftUI
+- Free Weather API "https://openweathermap.org/api"
 
 # App Screenshots
-<a href="url"><img src="https://github.com/rserodiaa/swiftUIDemo/assets/52790579/322fa77e-a55d-4983-86d4-818e99465771" align="left" height="350"></a>
-<a href="url"><img src="https://github.com/rserodiaa/swiftUIDemo/assets/52790579/6a2f9fa2-536d-42c3-b83c-b8f240641450" align="left" height="350"></a>
-
+<a href="url"><img src="https://github.com/rserodiaa/swiftUIDemo/assets/52790579/0b174d57-5f62-47a6-8f99-f39670a30b95" align="left" height="350"></a>
+<a href="url"><img src="https://github.com/rserodiaa/swiftUIDemo/assets/52790579/9e86a207-112d-4570-a92b-ae0da3c163cb" align="left" height="350"></a>
 
 
 
