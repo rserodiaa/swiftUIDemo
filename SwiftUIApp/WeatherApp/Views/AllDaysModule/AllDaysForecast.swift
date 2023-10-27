@@ -31,7 +31,6 @@ struct AllDaysForecast: View {
                                  date: date.date)
                     }
                 }
-                
                 Spacer()
             }
             .padding()
@@ -42,7 +41,7 @@ struct AllDaysForecast: View {
             
         }
         .navigationBarHidden(true)
-        .background(Color.purple.opacity(0.2))
+        .background(LinearGradient(colors: [Color(hex: 0xCF9FFF), Color(hex: 0xE0B0FF), Color(hex: 0xE6E6FA), .white], startPoint: .top, endPoint: .bottom))
     }
     
     private var navigationBar: some View {

@@ -46,7 +46,13 @@ final class CityOverViewModel: ObservableObject {
     // For next 5 days
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEE, d MMM"
+        formatter.dateFormat = "E,dd MMM"
+        return formatter
+    }
+    
+    var serverDateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
         return formatter
     }
     
@@ -63,22 +69,16 @@ final class CityOverViewModel: ObservableObject {
     }
     
     func formattedTime(from dateStr: String) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-mm-dd HH:mm:ss"
-        guard let date = formatter.date(from: dateStr) else { return "" }
+        guard let date = serverDateFormatter.date(from: dateStr) else { return "" }
         return timeFormatter.string(from: date)
     }
     
     func formattedDate(from dateStr: String) -> (day: String, date: String) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-mm-dd HH:mm:ss"
-        guard let date = formatter.date(from: dateStr) else { return ("", "") }
-        let dateStr = dateFormatter.string(from: date).split(separator: ",").map { "\($0)" }
-        return (dateStr.first ?? "", dateStr.last ?? "")
+        guard let date = serverDateFormatter.date(from: dateStr) else { return ("", "") }
+        let formattedDate = dateFormatter.string(from: date).split(separator: ",").map { "\($0)" }
+        return (formattedDate.first ?? "", formattedDate.last ?? "")
     }
     
-    
-
     func getWeatherData(cityName: String) {
         WeatherService.getWeatherData(city: cityName)
             .receive(on: DispatchQueue.main)

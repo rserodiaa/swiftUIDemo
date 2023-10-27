@@ -20,10 +20,17 @@ struct WeatherHome: View {
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .always))
-                .navigationBarHidden(true)
+
+                .navigationBarItems(
+                      trailing: Button(action: {}, label: {
+                          NavigationLink(destination: AllCitiesList(viewModel: viewModel)) {
+                             Image(systemName: "plus").foregroundColor(.black)
+                         }
+                      }))
             }
             .background(LinearGradient(colors: [Color(hex: 0xCF9FFF), Color(hex: 0xE0B0FF), Color(hex: 0xE6E6FA), .white], startPoint: .top, endPoint: .bottom)).ignoresSafeArea()
         }
+        
     }
 }
 

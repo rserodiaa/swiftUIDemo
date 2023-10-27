@@ -24,7 +24,6 @@ struct DailyRow: View {
             
             VStack(spacing: 8) {
                 Text(day)
-                
                 Text(date)
             }
         }
