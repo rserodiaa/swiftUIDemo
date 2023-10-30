@@ -10,11 +10,10 @@ import Combine
 
 final class CityOverViewModel: ObservableObject {
     
-    private var cityName: String = "Gurgaon"
     private var cancellable = Set<AnyCancellable>()
     @Published var weatherData: WeatherData?
     @Published var isLoaded = false
-    @Published var iconURL: URL = URL(string: "https://openweathermap.org/img/wn/10d@2x.png")!
+    @Published var iconURL: URL = URL(string: AppConstants.defaultWeatherImage)!
     @Published var desc: String = ""
     @Published var currentTemp: Int = 0
     @Published var humidity = ""
@@ -66,6 +65,10 @@ final class CityOverViewModel: ObservableObject {
     
     var dailyForecast: [WeatherList]? {
         return weatherData?.list.enumerated().filter { ($0.offset % 8 == 0) }.map { $0.element }
+    }
+    
+    var latLong: (Double, Double) {
+        return (weatherData?.city.coord.lat ?? 0, weatherData?.city.coord.lon ?? 0)
     }
     
     func formattedTime(from dateStr: String) -> String {

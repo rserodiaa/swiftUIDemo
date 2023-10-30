@@ -15,8 +15,7 @@ struct WeatherHome: View {
             ZStack {
                 TabView {
                     ForEach(viewModel.cities) { city in
-                        CityOverview(city: city.cityName,
-                                     weatherImage: city.imageName)
+                        CityOverview(city: city.cityName)
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .always))
