@@ -28,8 +28,6 @@ struct CityRow: View {
                     Image(systemName: "minus.circle.fill")
                         .foregroundColor(.white)
                 }
-//                Image(systemName: "minus.circle.fill")
-//                    .foregroundColor(.white)
             }
         }
         .padding(.horizontal, 20)
