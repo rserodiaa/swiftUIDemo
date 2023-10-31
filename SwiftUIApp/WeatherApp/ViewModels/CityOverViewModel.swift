@@ -21,15 +21,15 @@ final class CityOverViewModel: ObservableObject {
     @Published var visibility = ""
     @Published var pressure = ""
     
-    var currentList: WeatherList? {
+    private var currentList: WeatherList? {
         weatherData?.list.first
     }
     
-    var icon: String {
+    private var icon: String {
         currentList?.weather.first?.icon ?? "10d"
     }
     
-    var timeFormatter: DateFormatter {
+    private var timeFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm a"
         return formatter
@@ -49,7 +49,7 @@ final class CityOverViewModel: ObservableObject {
         return formatter
     }
     
-    var serverDateFormatter: DateFormatter {
+    private var serverDateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
         return formatter

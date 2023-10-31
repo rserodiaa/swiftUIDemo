@@ -44,7 +44,7 @@ struct WeatherService {
     }
     
     static func getPollutionDetails(lat: Double, lon: Double) -> AnyPublisher<PollutionDetails, Error> {
-        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/air_pollution?lat=\(lat)&lon=\(lon)&appid=\(AppConstants.airVisualKey)")
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/air_pollution?lat=\(lat)&lon=\(lon)&appid=\(AppConstants.apiKey)")
         else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
