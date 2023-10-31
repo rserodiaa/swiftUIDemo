@@ -31,6 +31,7 @@
 		542E9A672AEFB08200418A7E /* PollutionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E9A662AEFB08200418A7E /* PollutionViewModel.swift */; };
 		542E9A692AEFB21A00418A7E /* PollutionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E9A682AEFB21A00418A7E /* PollutionData.swift */; };
 		542E9A6B2AEFB6E600418A7E /* PollutionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E9A6A2AEFB6E600418A7E /* PollutionDetails.swift */; };
+		542E9A6D2AEFD94D00418A7E /* PollutionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E9A6C2AEFD94D00418A7E /* PollutionChart.swift */; };
 		548AC4BC2AB47A15006AA7A5 /* SwiftUIAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AC4BB2AB47A15006AA7A5 /* SwiftUIAppApp.swift */; };
 		548AC4BE2AB47A15006AA7A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AC4BD2AB47A15006AA7A5 /* ContentView.swift */; };
 		548AC4C02AB47A18006AA7A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 548AC4BF2AB47A18006AA7A5 /* Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		542E9A662AEFB08200418A7E /* PollutionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionViewModel.swift; sourceTree = "<group>"; };
 		542E9A682AEFB21A00418A7E /* PollutionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionData.swift; sourceTree = "<group>"; };
 		542E9A6A2AEFB6E600418A7E /* PollutionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionDetails.swift; sourceTree = "<group>"; };
+		542E9A6C2AEFD94D00418A7E /* PollutionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionChart.swift; sourceTree = "<group>"; };
 		548AC4B82AB47A15006AA7A5 /* SwiftUIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		548AC4BB2AB47A15006AA7A5 /* SwiftUIAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIAppApp.swift; sourceTree = "<group>"; };
 		548AC4BD2AB47A15006AA7A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			children = (
 				54A654B62ADFF70300BB1C26 /* AllDaysForecast.swift */,
 				54F9BB742AE00AE200D50447 /* DailyRow.swift */,
+				542E9A6C2AEFD94D00418A7E /* PollutionChart.swift */,
 			);
 			path = AllDaysModule;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				541913882AD92E37008B3E7C /* UserList.swift in Sources */,
+				542E9A6D2AEFD94D00418A7E /* PollutionChart.swift in Sources */,
 				540CE60E2AEA463E001B1742 /* AllCitiesList.swift in Sources */,
 				54A654B32ADFDE9300BB1C26 /* DummyCityData.swift in Sources */,
 				54A654B02ADFDE4A00BB1C26 /* DummyViewModel.swift in Sources */,

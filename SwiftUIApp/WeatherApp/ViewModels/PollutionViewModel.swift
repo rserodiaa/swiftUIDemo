@@ -18,16 +18,6 @@ class PollutionViewModel: ObservableObject {
         pollutionData?.data.current.pollution.aqius ?? 0
     }
     
-    func getPollutionLevel(aqi: Int) -> (PollutionLevels, UInt, String) {
-        switch aqi {
-        case 0...50 : return (PollutionLevels.Good, 0xa8e05f, "happy")
-        case 51...100: return (PollutionLevels.Moderate, 0xfdd64b, "moderate")
-        case 101...150: return (PollutionLevels.Sensitive, 0xff9b57, "unhealthy")
-        case 151...200: return (PollutionLevels.Unhealthy, 0xfe6a69, "mask")
-        default: return (PollutionLevels.Hazardous, 0xa97abc, "hazardous")
-        }
-    }
-    
     func getPollutionData(lat: Double, lon: Double) {
         WeatherService.getPollutionData(lat: lat, lon: lon)
             .receive(on: DispatchQueue.main)

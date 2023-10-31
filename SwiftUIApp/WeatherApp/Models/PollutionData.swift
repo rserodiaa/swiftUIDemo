@@ -39,7 +39,3 @@ struct Location: Codable {
     let type: String
     let coordinates: [Double]
 }
-
-enum PollutionLevels: String {
-    case Good, Moderate, Sensitive, Unhealthy, Hazardous
-}

@@ -109,7 +109,7 @@ struct AllCitiesList: View {
             
             Text("Please enter valid city name")
                 .foregroundColor(.gray)
-                .offset(y: showToast ? 0 : 600)
+                .opacity(showToast ? 1 : 0)
                 
         }
     }
@@ -118,12 +118,11 @@ struct AllCitiesList: View {
         let bgColor = Color.red.opacity(0.2)
         let isValid = viewModel.addNewCity()
         if !isValid {
-            
-            withAnimation(.easeOut(duration: 0.2)) {
+            withAnimation(.easeIn(duration: 0.3)) {
                 showToast = true
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
-                withAnimation(.easeOut(duration: 0.6)) {
+                withAnimation(.easeOut(duration: 0.3)) {
                     showToast = false
                 }
             }

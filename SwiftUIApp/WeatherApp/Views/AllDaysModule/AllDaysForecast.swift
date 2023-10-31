@@ -11,6 +11,7 @@ struct AllDaysForecast: View {
     @Environment(\.presentationMode) var presentationMode
     var cityViewModel: CityOverViewModel
     @ObservedObject var pollutionVM = PollutionViewModel()
+    @State private var showingPopover = false
     
     var body: some View {
         
@@ -75,13 +76,13 @@ struct AllDaysForecast: View {
         .padding()
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity)
-        .background(RoundedRectangle(cornerRadius: 40).fill(.purple))
+        .background(RoundedRectangle(cornerRadius: 40).fill(.purple.opacity(0.75)))
         .padding(.horizontal, 25)
     }
     
     private var pollutionStack: some View {
         HStack {
-            Image(pollutionVM.getPollutionLevel(aqi: pollutionVM.aqiLevel).2)
+            Image(AppConstants.getPollutionLevel(aqi: pollutionVM.aqiLevel).2)
                 .resizable()
                 .frame(width: 90, height: 90)
                 .clipShape(Circle())
@@ -89,23 +90,46 @@ struct AllDaysForecast: View {
             
             VStack {
                 Text("\(pollutionVM.aqiLevel)").font(.title)
-                Text("US AQI").font(.caption)
+                Text("US AQI").font(.caption).fontWeight(.light)
             }
             
-            Text(pollutionVM.getPollutionLevel(aqi: pollutionVM.aqiLevel).0.rawValue).font(.title2)
+            Text(AppConstants.getPollutionLevel(aqi: pollutionVM.aqiLevel).0.rawValue)
+                .padding(.leading, 8)
+                .font(.title2)
+                .fontWeight(.light)
         }
         .padding()
         .padding(.vertical, 20)
         .frame(height: 130)
         .frame(maxWidth: .infinity)
-        .background(RoundedRectangle(cornerRadius: 30).fill(Color(hex: pollutionVM.getPollutionLevel(aqi: pollutionVM.aqiLevel).1)))
+        .background(
+            RoundedRectangle(cornerRadius: 30)
+            .fill(Color(hex: AppConstants.getPollutionLevel(aqi: pollutionVM.aqiLevel).1))
+            
+            .overlay(alignment: .bottomTrailing, content: {
+                Button(action: {
+                    showingPopover = true
+                }) {
+                    Image("information")
+                        .resizable()
+                        .frame(width: 30,
+                               height: 30)
+                }
+                .popover(isPresented: $showingPopover) {
+                    PollutionChart()
+                }
+            })
+        )
         .padding(.horizontal, 25)
+        
     }
     
     
     private func fetchPollutionData() {
-        pollutionVM.getPollutionData(lat: cityViewModel.latLong.0,
-                                     lon: cityViewModel.latLong.1)
+        if pollutionVM.pollutionData == nil {
+            pollutionVM.getPollutionData(lat: cityViewModel.latLong.0,
+                                         lon: cityViewModel.latLong.1)
+        }
     }
 }
 

@@ -30,7 +30,9 @@ struct CityOverview: View {
     }
     
     private func fetchWeather() {
-        cityViewModel.getWeatherData(cityName: city)
+        if cityViewModel.weatherData == nil {
+            cityViewModel.getWeatherData(cityName: city)
+        }
     }
     
     private var header: some View {
