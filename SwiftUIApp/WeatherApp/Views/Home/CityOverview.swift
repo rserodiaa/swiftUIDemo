@@ -11,7 +11,6 @@ import SDWebImageSwiftUI
 
 struct CityOverview: View {
     var city: String
-    var weatherImage: String
     @ObservedObject var cityViewModel = CityOverViewModel()
     
     var body: some View {
@@ -31,7 +30,9 @@ struct CityOverview: View {
     }
     
     private func fetchWeather() {
-        cityViewModel.getWeatherData(cityName: city)
+        if cityViewModel.weatherData == nil {
+            cityViewModel.getWeatherData(cityName: city)
+        }
     }
     
     private var header: some View {
@@ -95,9 +96,10 @@ struct CityOverview: View {
                 Text("Today")
                 Spacer()
                 NavigationLink(destination: AllDaysForecast(cityViewModel: cityViewModel)) {
-                    Text("Next 5 days")
+                    Text("More")
                     Image(systemName: "chevron.right")
                 }
+                .tint(.black)
                 
             }
             .fontWeight(.bold)
@@ -124,6 +126,6 @@ struct CityOverview: View {
 
 struct CityOverview_Previews: PreviewProvider {
     static var previews: some View {
-        CityOverview(city: "Gurugram", weatherImage: "Sunny")
+        CityOverview(city: "Gurugram")
     }
 }

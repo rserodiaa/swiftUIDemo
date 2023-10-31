@@ -16,8 +16,9 @@ struct DummyCity: Identifiable {
         [
             (DummyCity(cityName: "Gurugram", imageName: "CloudRainThunder")),
             (DummyCity(cityName: "Rishikesh", imageName: "FreezingDrizzle")),
-            (DummyCity(cityName: "Paris", imageName: "ModSnowSwrsDay")),
-            (DummyCity(cityName: "London", imageName: "HeavySleetSwrsDay"))
+            (DummyCity(cityName: "Bengaluru", imageName: "ModSnowSwrsDay")),
+            (DummyCity(cityName: "London", imageName: "HeavySleetSwrsDay")),
+            (DummyCity(cityName: "Lahore", imageName: "HeavySleetSwrsDay"))
         ]
     }
 }

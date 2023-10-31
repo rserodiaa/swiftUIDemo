@@ -36,7 +36,7 @@ struct DailyRow: View {
 struct DailyRow_Previews: PreviewProvider {
     static var previews: some View {
         DailyRow(imageName: URL(string:
-                                    "https://openweathermap.org/img/wn/10d@2x.png"),
+                                    AppConstants.defaultWeatherImage),
                  temp: 30,
                  day: "Monday",
                  date: "17 Oct")
