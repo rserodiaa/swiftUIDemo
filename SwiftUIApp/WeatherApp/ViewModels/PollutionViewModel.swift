@@ -12,13 +12,24 @@ class PollutionViewModel: ObservableObject {
     private var cancellable = Set<AnyCancellable>()
     @Published var pollutionData: PollutionData?
     @Published var isLoaded = false
+    @Published var isDetailsLoaded = false
     @Published var pollutionDetails: PollutionDetails?
+    private let requiredComps = ["pm2_5","so2", "co", "pm10", "o3", "no2"]
     
     var aqiLevel: Int {
         pollutionData?.data.current.pollution.aqius ?? 0
     }
     
+    private var comps: [String: Double]? {
+        pollutionDetails?.list.first?.components
+    }
+    
+    var filteredComps: [String: Double]? {
+        comps?.filter { requiredComps.contains($0.key) }
+    }
+    
     func getPollutionData(lat: Double, lon: Double) {
+        getPollutionDetails(lat: lat, lon: lon)
         WeatherService.getPollutionData(lat: lat, lon: lon)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -57,7 +68,7 @@ class PollutionViewModel: ObservableObject {
                     return
                 }
                 DispatchQueue.main.async {
-                    self.isLoaded = true
+                    self.isDetailsLoaded = true
                     self.pollutionDetails = data
                 }
             })

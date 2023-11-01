@@ -13,12 +13,6 @@ struct DummyCity: Identifiable {
     var imageName: String
     
     static var populateCites: [DummyCity] {
-        [
-            (DummyCity(cityName: "Gurugram", imageName: "CloudRainThunder")),
-            (DummyCity(cityName: "Rishikesh", imageName: "FreezingDrizzle")),
-            (DummyCity(cityName: "Bengaluru", imageName: "ModSnowSwrsDay")),
-            (DummyCity(cityName: "London", imageName: "HeavySleetSwrsDay")),
-            (DummyCity(cityName: "Lahore", imageName: "HeavySleetSwrsDay"))
-        ]
+        AppConstants.dummyCity
     }
 }

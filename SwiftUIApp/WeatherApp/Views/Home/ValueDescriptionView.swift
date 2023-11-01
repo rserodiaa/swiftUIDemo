@@ -23,9 +23,3 @@ struct ValueDescriptionView: View {
         }
     }
 }
-
-//struct ValueDescriptionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ValueDescriptionView(imageName: "humidity", value: "34%", weatherAttr: "Humidity")
-//    }
-//}

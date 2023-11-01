@@ -21,7 +21,7 @@ final class DummyViewModel: ObservableObject {
             shouldShake.toggle()
             return false
         }
-        cities.append(DummyCity(cityName: addCity, imageName: "FreezingDrizzle"))
+        cities.append(DummyCity(cityName: addCity, imageName: "HeavySleetSwrsDay"))
         addCity = ""
         return true
     }

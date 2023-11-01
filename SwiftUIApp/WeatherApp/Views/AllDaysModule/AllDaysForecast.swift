@@ -24,8 +24,9 @@ struct AllDaysForecast: View {
             dailyWidget
             Spacer().frame(height: 30)
             
-            if pollutionVM.isLoaded {
-                pollutionStack
+            if pollutionVM.isLoaded && pollutionVM.isDetailsLoaded {
+                PollutionToggleWidget(aqiLevel: pollutionVM.aqiLevel,
+                                      pollutionComps: pollutionVM.filteredComps)
             } else {
                 ProgressView()
             }
@@ -79,51 +80,6 @@ struct AllDaysForecast: View {
         .background(RoundedRectangle(cornerRadius: 40).fill(.purple.opacity(0.75)))
         .padding(.horizontal, 25)
     }
-    
-    private var pollutionStack: some View {
-        HStack {
-            Image(AppConstants.getPollutionLevel(aqi: pollutionVM.aqiLevel).2)
-                .resizable()
-                .frame(width: 90, height: 90)
-                .clipShape(Circle())
-            Spacer()
-            
-            VStack {
-                Text("\(pollutionVM.aqiLevel)").font(.title)
-                Text("US AQI").font(.caption).fontWeight(.light)
-            }
-            
-            Text(AppConstants.getPollutionLevel(aqi: pollutionVM.aqiLevel).0.rawValue)
-                .padding(.leading, 8)
-                .font(.title2)
-                .fontWeight(.light)
-        }
-        .padding()
-        .padding(.vertical, 20)
-        .frame(height: 130)
-        .frame(maxWidth: .infinity)
-        .background(
-            RoundedRectangle(cornerRadius: 30)
-            .fill(Color(hex: AppConstants.getPollutionLevel(aqi: pollutionVM.aqiLevel).1))
-            
-            .overlay(alignment: .bottomTrailing, content: {
-                Button(action: {
-                    showingPopover = true
-                }) {
-                    Image("information")
-                        .resizable()
-                        .frame(width: 30,
-                               height: 30)
-                }
-                .popover(isPresented: $showingPopover) {
-                    PollutionChart()
-                }
-            })
-        )
-        .padding(.horizontal, 25)
-        
-    }
-    
     
     private func fetchPollutionData() {
         if pollutionVM.pollutionData == nil {

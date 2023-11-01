@@ -19,3 +19,9 @@ extension Color {
     }
 }
 
+extension View {
+      func flipRotate(_ degrees : Double) -> some View {
+            return rotation3DEffect(Angle(degrees: degrees), axis: (x: 0.0, y: 1.0, z: 0.0))
+      }
+}
+
