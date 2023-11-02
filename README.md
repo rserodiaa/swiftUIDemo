@@ -33,7 +33,5 @@ Swift 5.0
 <a href="url"><img src="https://github.com/rserodiaa/swiftUIDemo/assets/52790579/b05e6597-eef1-499a-a2c1-d525af9e59d4" align="left" height="350"></a>
 <a href="url"><img src="https://github.com/rserodiaa/swiftUIDemo/assets/52790579/fd6e2c28-082c-4d33-814c-b89fdfe0bac6" align="left" height="350"></a>
 
-
-![Simulator Screen Recording - iPhone 12 - 2023-10-27 at 12 21 44](https://github.com/rserodiaa/swiftUIDemo/assets/52790579/0207723b-8b03-4d38-88ef-bf70c8580412)
-![Simulator Screen Recording - iPhone 12 - 2023-10-31 at 15 23 43-min](https://github.com/rserodiaa/swiftUIDemo/assets/52790579/fcf0b506-574d-4156-8e2e-cec9cd937edf)
+![Simulator Screen Recording - iPhone 12 - 2023-11-01 at 19 28 27](https://github.com/rserodiaa/swiftUIDemo/assets/52790579/b565cd06-e427-47d9-b8c4-988d221b6455)
 
