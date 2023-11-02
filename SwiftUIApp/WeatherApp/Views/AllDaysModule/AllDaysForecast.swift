@@ -34,7 +34,7 @@ struct AllDaysForecast: View {
         }
         .onAppear(perform: fetchPollutionData)
         .navigationBarHidden(true)
-        .background(LinearGradient(colors: [Color(hex: 0xCF9FFF), Color(hex: 0xE0B0FF), Color(hex: 0xE6E6FA), .white], startPoint: .top, endPoint: .bottom))
+        .addLinearGradient()
     }
     
     

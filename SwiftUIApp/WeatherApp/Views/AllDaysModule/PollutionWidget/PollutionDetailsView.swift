@@ -10,7 +10,7 @@ import SwiftUI
 struct PollutionDetailsView: View {
     var comps: [String: Double]?
     var body: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 30) {
                 
                 if let comps = comps {
@@ -42,7 +42,7 @@ struct PollutionDetailsView: View {
         .frame(maxWidth: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 30)
-                .fill(Color(hex: 0xF4F1F1))
+                .fill(Color(hex: 0x82cdcd))
         )
         .padding(.horizontal, 25)
     }

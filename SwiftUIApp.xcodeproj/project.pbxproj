@@ -145,6 +145,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5405A6FD2AF2929200B647FC /* PollutionWidget */ = {
+			isa = PBXGroup;
+			children = (
+				542E9A6C2AEFD94D00418A7E /* PollutionChart.swift */,
+				54AC40482AF10AB4001EF221 /* PollutionToggleWidget.swift */,
+				54AC404A2AF12C9A001EF221 /* PollutionAQIView.swift */,
+				543449AB2AF13BB2003AB681 /* PollutionDetailsView.swift */,
+			);
+			path = PollutionWidget;
+			sourceTree = "<group>";
+		};
 		540CE60B2AEA45F9001B1742 /* AllCities */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,12 +358,9 @@
 		54F9BB732AE00AAA00D50447 /* AllDaysModule */ = {
 			isa = PBXGroup;
 			children = (
+				5405A6FD2AF2929200B647FC /* PollutionWidget */,
 				54A654B62ADFF70300BB1C26 /* AllDaysForecast.swift */,
 				54F9BB742AE00AE200D50447 /* DailyRow.swift */,
-				542E9A6C2AEFD94D00418A7E /* PollutionChart.swift */,
-				54AC40482AF10AB4001EF221 /* PollutionToggleWidget.swift */,
-				54AC404A2AF12C9A001EF221 /* PollutionAQIView.swift */,
-				543449AB2AF13BB2003AB681 /* PollutionDetailsView.swift */,
 			);
 			path = AllDaysModule;
 			sourceTree = "<group>";

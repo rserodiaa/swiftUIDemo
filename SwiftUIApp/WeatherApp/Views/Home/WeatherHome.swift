@@ -27,7 +27,7 @@ struct WeatherHome: View {
                          }
                       }))
             }
-            .background(LinearGradient(colors: [Color(hex: 0xCF9FFF), Color(hex: 0xE0B0FF), Color(hex: 0xE6E6FA), .white], startPoint: .top, endPoint: .bottom)).ignoresSafeArea()
+            .addLinearGradient().ignoresSafeArea()
         }
         
     }
