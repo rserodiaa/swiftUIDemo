@@ -9,6 +9,10 @@ import Foundation
 import Combine
 
 struct WeatherService {
+    
+    /// To get weather data for city
+    /// - Parameter city: String
+    /// - Returns: Returns publisher and decode into model ``WeatherData``
     static func getWeatherData(city: String) -> AnyPublisher<WeatherData, Error> {
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=\(city)&appid=\(AppConstants.apiKey)&units=metric")
         else {

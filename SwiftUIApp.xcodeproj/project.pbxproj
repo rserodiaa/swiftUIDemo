@@ -14,12 +14,14 @@
 		540CE60E2AEA463E001B1742 /* AllCitiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540CE60D2AEA463D001B1742 /* AllCitiesList.swift */; };
 		540CE6102AEA5530001B1742 /* CityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540CE60F2AEA5530001B1742 /* CityRow.swift */; };
 		540D518A2D19D3640064AD99 /* ToolTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540D51892D19D3640064AD99 /* ToolTip.swift */; };
+		540D51912D1AE5D10064AD99 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 540D51902D1AE5D10064AD99 /* SDWebImage */; };
+		540D51932D1AE5D80064AD99 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 540D51922D1AE5D80064AD99 /* SDWebImageSwiftUI */; };
+		540D51952D1AE5E00064AD99 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 540D51942D1AE5E00064AD99 /* SDWebImageMapKit */; };
 		541135B02ADFB31C00D7E5DE /* ValueDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541135AF2ADFB31C00D7E5DE /* ValueDescriptionView.swift */; };
 		541135B22ADFC06D00D7E5DE /* HourlyBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541135B12ADFC06D00D7E5DE /* HourlyBox.swift */; };
 		54146F6E2AE24F32009879F2 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54146F6D2AE24F32009879F2 /* WeatherService.swift */; };
 		54146F702AE25113009879F2 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54146F6F2AE25113009879F2 /* AppConstants.swift */; };
 		54146F732AE256FA009879F2 /* CityOverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54146F722AE256FA009879F2 /* CityOverViewModel.swift */; };
-		54146F792AE26B8B009879F2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 54146F782AE26B8B009879F2 /* SDWebImageSwiftUI */; };
 		54146F7B2AE28D01009879F2 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54146F7A2AE28D01009879F2 /* WeatherData.swift */; };
 		5419137C2AD52C88008B3E7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5419137E2AD52C88008B3E7C /* Localizable.strings */; };
 		541913832AD90D1F008B3E7C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541913822AD90D1F008B3E7C /* User.swift */; };
@@ -126,7 +128,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54146F792AE26B8B009879F2 /* SDWebImageSwiftUI in Frameworks */,
+				540D51932D1AE5D80064AD99 /* SDWebImageSwiftUI in Frameworks */,
+				540D51952D1AE5E00064AD99 /* SDWebImageMapKit in Frameworks */,
+				540D51912D1AE5D10064AD99 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +180,13 @@
 				54A654AC2ADFDBB200BB1C26 /* CityOverview.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		540D518F2D1AE5D10064AD99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		541135AC2ADFB2E100D7E5DE /* Views */ = {
@@ -261,6 +272,7 @@
 				548AC4CC2AB47A18006AA7A5 /* SwiftUIAppTests */,
 				548AC4D62AB47A18006AA7A5 /* SwiftUIAppUITests */,
 				548AC4B92AB47A15006AA7A5 /* Products */,
+				540D518F2D1AE5D10064AD99 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -385,7 +397,9 @@
 			);
 			name = SwiftUIApp;
 			packageProductDependencies = (
-				54146F782AE26B8B009879F2 /* SDWebImageSwiftUI */,
+				540D51902D1AE5D10064AD99 /* SDWebImage */,
+				540D51922D1AE5D80064AD99 /* SDWebImageSwiftUI */,
+				540D51942D1AE5E00064AD99 /* SDWebImageMapKit */,
 			);
 			productName = SwiftUIApp;
 			productReference = 548AC4B82AB47A15006AA7A5 /* SwiftUIApp.app */;
@@ -461,7 +475,8 @@
 			);
 			mainGroup = 548AC4AF2AB47A15006AA7A5;
 			packageReferences = (
-				54146F772AE26B8B009879F2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				540D518D2D1AE4F80064AD99 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				540D518E2D1AE5530064AD99 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 548AC4B92AB47A15006AA7A5 /* Products */;
 			projectDirPath = "";
@@ -902,21 +917,39 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		54146F772AE26B8B009879F2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+		540D518D2D1AE4F80064AD99 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 5.20.0;
+			};
+		};
+		540D518E2D1AE5530064AD99 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI?tab=readme-ov-file";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		54146F782AE26B8B009879F2 /* SDWebImageSwiftUI */ = {
+		540D51902D1AE5D10064AD99 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 54146F772AE26B8B009879F2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			package = 540D518D2D1AE4F80064AD99 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		540D51922D1AE5D80064AD99 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 540D518E2D1AE5530064AD99 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		540D51942D1AE5E00064AD99 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 540D518D2D1AE4F80064AD99 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

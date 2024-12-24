@@ -110,9 +110,21 @@ enum AppConstants{
         }
     }
     
+    
+    /// To give color codes and description rating
+    /// 
+    ///     It can map only five levels of AQI with following levels
+    ///     0-50 Green(Good)
+    ///     51-100 Yellow(Moderate)
+    ///     101-150 Orange(Sensitive)
+    ///     151-200 Red(Unhealthy)
+    ///     201-250 Purple(Hazardous)
+    ///
+    /// - Parameter aqi: AQI Int value in Int which falls into specific range
+    /// - Returns: Returns a topple with ``PollutionLevels``, ``colorCodes`` and image name
     static func getPollutionLevel(aqi: Int) -> (PollutionLevels, UInt, String) {
         switch aqi {
-        case 0...50 : return (PollutionLevels.Good, colorCodes[0], "happy") // Green
+        case 0...50 : return (PollutionLevels.Good, colorCodes[0], "happy")
         case 51...100: return (PollutionLevels.Moderate, colorCodes[1], "moderate") // Yellow
         case 101...150: return (PollutionLevels.Sensitive, colorCodes[2], "unhealthy") // Orange
         case 151...200: return (PollutionLevels.Unhealthy, colorCodes[3], "mask") // Red
