@@ -12,6 +12,7 @@ struct AllDaysForecast: View {
     var cityViewModel: CityOverViewModel
     @ObservedObject var pollutionVM = PollutionViewModel()
     @State private var showingPopover = false
+    let toggleTip = ToggleTip()
     
     var body: some View {
         
@@ -27,6 +28,8 @@ struct AllDaysForecast: View {
             if pollutionVM.isLoaded && pollutionVM.isDetailsLoaded {
                 PollutionToggleWidget(aqiLevel: pollutionVM.aqiLevel,
                                       pollutionComps: pollutionVM.filteredComps)
+                .popoverTip(toggleTip)
+                .frame()
             } else {
                 ProgressView()
             }

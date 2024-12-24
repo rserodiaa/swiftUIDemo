@@ -11,7 +11,7 @@ enum AppConstants{
     //Weather API Key
     static let apiKey = "bbd31ea31566748bf30c141164d48c60"
     //Air Visual API Key
-    static let airVisualKey = "8d34fe9b-fd10-4175-8555-6fa486c6383e"
+    static let airVisualKey = "b9f2d98a-d2bc-44d0-b41c-cb9d81d16b62"
     
     static let dummyCity: [DummyCity] = [
         (DummyCity(cityName: "Gurugram", imageName: "Sunny")),
